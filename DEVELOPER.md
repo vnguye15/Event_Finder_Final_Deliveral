@@ -31,22 +31,22 @@
 #### Ticketmaster API
 - Base URL: https://app.ticketmaster.com/discovery/v2/
 - Endpoints:
-- -/events.json: Retrieves events based on search criteria such as location, date, and genre.
-- --Method: GET
-- --Parameters: apikey, locale, size, page
-- --Example: https://app.ticketmaster.com/discovery/v2/events.json?apikey=YOUR_API_KEY&locale=en-US
+- - /events.json: Retrieves events based on search criteria such as location, date, and genre.
+- -- Method: GET
+- -- Parameters: apikey, locale, size, page
+- -- Example: https://app.ticketmaster.com/discovery/v2/events.json?apikey=YOUR_API_KEY&locale=en-US
 
 #### Eventbrite API
 - Base URL: https://www.eventbriteapi.com/v3/
 - Endpoints:
-- -/events/search/: Searches for events based on user preferences.
-- --Method: GET
-- --Authorization: Bearer Token
-- --Example: https://www.eventbriteapi.com/v3/events/search/?token=YOUR_TOKEN&q=music
+- - /events/search/: Searches for events based on user preferences.
+- -- Method: GET
+- -- Authorization: Bearer Token
+- -- Example: https://www.eventbriteapi.com/v3/events/search/?token=YOUR_TOKEN&q=music
 
 #### Running Tests
 - Test Suite
-- -Run automated tests to ensure that the application behaves as expected: npm test
+- - Run automated tests to ensure that the application behaves as expected: npm test
 
 ### Known Bugs and Roadmap
 - Known Bugs
