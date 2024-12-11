@@ -9,4 +9,4 @@ Event Horizon is a web-based application designed to help users discover events 
 Mobile Browsers: Safari on iOS, Chrome on Android
 
 ##Developer manual
-DEVELOPER.md 
+- https://github.com/Bhuiyanahb/Event_Finder_Final_Deliveral/blob/main/DEVELOPER.md 
