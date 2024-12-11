@@ -32,9 +32,9 @@
 - Base URL: https://app.ticketmaster.com/discovery/v2/
 - Endpoints:
 - - /events.json: Retrieves events based on search criteria such as location, date, and genre.
-- -- Method: GET
-- -- Parameters: apikey, locale, size, page
-- -- Example: https://app.ticketmaster.com/discovery/v2/events.json?apikey=YOUR_API_KEY&locale=en-US
+- --  Method: GET
+- --  Parameters: apikey, locale, size, page
+- --  Example: https://app.ticketmaster.com/discovery/v2/events.json?apikey=YOUR_API_KEY&locale=en-US
 
 #### Eventbrite API
 - Base URL: https://www.eventbriteapi.com/v3/
