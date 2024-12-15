@@ -114,7 +114,36 @@ function loadVenues() {
         });
 }
 
-window.onload = loadVenues;
+
+function loadEventDates() {
+    const apiUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?apikey=n30PAv6jRNbr2Tc9nGWUWpHHPsJk7TCn';
+    const selectElement = document.getElementById('eventDates');
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const dates = new Set();
+            data?._embedded?.events?.forEach(event => {
+                dates.add(event.dates?.start?.localDate);
+            });
+
+            dates.forEach(date => {
+                if (date) { 
+                    const option = document.createElement('option');
+                    option.value = date;
+                    option.textContent = date;
+                    selectElement.appendChild(option);
+                }
+            });
+        })
+
+}
+
+
+window.onload = function() {
+    loadEventDates();
+    loadVenues();
+};
 
 
 // carousel functions
