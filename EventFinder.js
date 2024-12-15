@@ -117,3 +117,41 @@ function loadVenues() {
 window.onload = loadVenues;
 
 
+// carousel functions
+let currentIndex = 0;
+
+
+ function showSlide(index) {
+   const slides = document.querySelector('.carousel-images');
+   const dots = document.querySelectorAll('.dot');
+   const totalSlides = document.querySelectorAll('.carousel-images img').length;
+
+
+   // Wrap around index if out of bounds
+   if (index >= totalSlides) currentIndex = 0;
+   else if (index < 0) currentIndex = totalSlides - 1;
+   else currentIndex = index;
+
+
+   // Move the carousel
+   slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+
+   // Update active dot
+   dots.forEach(dot => dot.classList.remove('active'));
+   dots[currentIndex].classList.add('active');
+ }
+
+
+ function changeSlide(direction) {
+   showSlide(currentIndex + direction);
+ }
+
+
+ function goToSlide(index) {
+   showSlide(index);
+ }
+
+
+ // Initialize the carousel
+ showSlide(currentIndex);

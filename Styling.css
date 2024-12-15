@@ -21,6 +21,10 @@ body{
     color:white;
 }
 
+#main-nav button:hover{
+  background-color: #2196F3;
+}
+
 #main-pic{
     display: block;
     margin-left: auto;
@@ -35,7 +39,7 @@ body{
 .grid-container {
     display: grid;
     column-gap: 20px;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto;
     background-color: #4e009b;
     padding: 20px;
   }
@@ -157,3 +161,85 @@ select#categorySelect {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+ 
+.grid-item:hover{
+  background-color:#2196F3;
+ }
+ 
+ 
+ .grid-item a{
+  color:white;
+ }
+ 
+ .carousel {
+  position: relative;
+  max-width: 800px; /* Adjust carousel width */
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ }
+ 
+ 
+ .carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+ }
+ 
+ 
+ .carousel-images img {
+  width: 100%;
+  flex-shrink: 0; /* Prevent images from shrinking */
+ }
+ 
+ 
+ .carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+ }
+ 
+ 
+ .prev, .next {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 50%;
+ }
+ 
+ 
+ .prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+ }
+ 
+ 
+ .carousel-dots {
+  text-align: center;
+  margin-top: 10px;
+ }
+ 
+ 
+ .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+ }
+ 
+ 
+ .dot.active {
+  background-color: #717171;
+ }
+ 
+ 
+ 
+ 
+
