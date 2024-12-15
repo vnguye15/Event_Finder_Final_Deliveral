@@ -80,6 +80,10 @@ h1 {
     color: #CCC;
 }
 
+h3 {
+    color: #CCC;
+}
+
 select#categorySelect {
     display: block;
     margin: 20px auto;
