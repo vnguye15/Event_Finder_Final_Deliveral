@@ -16,8 +16,52 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             clearEvents();
         }
-    });
+    }); 
+    //end of line document.getElementByid('categorySelect')...
+
+    //below are event listeners that pass in values from updateFilters() function.
+document.getElementById('categorySelect').addEventListener('change', updateFilters); 
+document.getElementById('venues').addEventListener('change', updateFilters);
+document.getElementById('eventDates').addEventListener('change', updateFilters);
 });
+
+
+
+//creating a function that will update filters
+function updateFilters() {
+
+    // creating variables that will hold values
+    const category = document.getElementById('categorySelect').value;
+    const venues = document.getElementById('venues').value
+    const eventDates = document.getElementById('eventDates').value
+
+
+    //if the filter is either a category, venue, or date, 
+    if (category != null || venues != null || eventDates != null ) {
+
+        //update the filter with the loadEventsByFilter() function
+        loadEventsByFilter(category, venues, eventDates);
+        
+
+    }else {
+
+        //otherwise we clear the filter 
+        clearEvents();
+        
+    }
+
+
+
+}
+
+
+// creating a function that will fetch events by filters 
+function loadEventsByFilter() {
+
+    return 0;
+}
+
+
 
 function fetchEventsByCategory(categoryId) {
     const apiURL = 'https://app.ticketmaster.com/discovery/v2/events.json';
