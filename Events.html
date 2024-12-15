@@ -24,14 +24,19 @@
     <div class="main-container">
       <h1>Upcoming Events</h1>
       <h3> Please choose an event option that fits your interest.</h3>
-      <select id="categorySelect">
-          <option value="">Select a Category</option>
-          <option value="KZFzniwnSyZfZ7v7nJ">Party</option>
-          <option value="KZFzniwnSyZfZ7v7nE">Live Music</option>
-          <option value="KZFzniwnSyZfZ7v7na">Food & Drink</option>
-          <option>Sporting Event</option>
-          <option>Attraction</option>
-      </select>
+
+      <form id="eventForm">
+        <select id="categorySelect">
+            <option value="">Select a Category</option>
+            <option value="KZFzniwnSyZfZ7v7nJ">Party</option>
+            <option value="KZFzniwnSyZfZ7v7nE">Live Music</option>
+            <option value="KZFzniwnSyZfZ7v7na">Food & Drink</option>
+            <option value="KZFzniwnSyZfZ7v7nA">Sporting Event</option>
+            <option value="KZFzniwnSyZfZ7v7nl">Attraction</option>
+        </select>
+        <button type="submit">Search Events</button>
+      </form>
+
       <div class="event-list">
           <!-- Events will be populated here by JavaScript -->
       </div>
@@ -46,7 +51,7 @@
         <input type="checkbox">
         <span class="checkmark"></span>
       </label>
-      <label class="checkbox-container">Location
+      <label class="checkbox-container">Venue
         <input type="checkbox">
         <span class="checkmark"></span>
       </label>
