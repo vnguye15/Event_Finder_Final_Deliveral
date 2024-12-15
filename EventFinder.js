@@ -7,6 +7,7 @@ function changeAboutPage(){
 function changeEventsPage(){
     window.location.href = "Events.html"
 }
+
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('categorySelect').addEventListener('change', function() {
         const category = this.value;
@@ -88,3 +89,31 @@ function fetchEventsByCategory(categoryId) {
             displayNoEventsFound();
         });
 }
+
+
+
+// function for getting venue options 
+function loadVenues() {
+    const apiUrl = 'https://app.ticketmaster.com/discovery/v2/venues.json?apikey=n30PAv6jRNbr2Tc9nGWUWpHHPsJk7TCn';
+    const selectElement = document.getElementById('venues');
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            selectElement.innerHTML = '';
+            data._embedded.venues.forEach(venue => {
+                const option = document.createElement('option');
+                option.value = venue.id;
+                option.textContent = venue.name;
+                selectElement.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching venues:', error);
+            selectElement.innerHTML = '<option value="">Error loading venues</option>';
+        });
+}
+
+window.onload = loadVenues;
+
+

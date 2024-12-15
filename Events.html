@@ -2,6 +2,7 @@
   <head>
     <title>INST377 - Final Project</title>
     <link rel="stylesheet" href="Styling.css" />
+    <script src="EventFinder.js"></script>
   </head>
 
   <body>
@@ -34,7 +35,6 @@
             <option value="KZFzniwnSyZfZ7v7nA">Sporting Event</option>
             <option value="KZFzniwnSyZfZ7v7nl">Attraction</option>
         </select>
-        <button type="submit">Search Events</button>
       </form>
 
       <div class="event-list">
@@ -43,22 +43,12 @@
 
       <br>
       <h3>Choose filter options for your chosen event.</h3>
-      <label class="checkbox-container">Date
-        <input type="checkbox">
-        <span class="checkmark"></span>
-      </label>
-      <label class="checkbox-container">Time
-        <input type="checkbox">
-        <span class="checkmark"></span>
-      </label>
-      <label class="checkbox-container">Venue
-        <input type="checkbox">
-        <span class="checkmark"></span>
-      </label>
-      <label class="checkbox-container">Genre
-        <input type="checkbox">
-        <span class="checkmark"></span>
-      </label>
+      <form>
+        <label for="venues">Venues: </label>
+        <select id="venues" name="venues">
+            <option value="">Loading venues...</option>
+        </select>
+      </form>
 
       <img src="https://images.lincolncenter.org/image/upload/v1658782168/cokcc2pdwzdjolxd5dab.jpg" height="500px" id="main-pic">
   </div>

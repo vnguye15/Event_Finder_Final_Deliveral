@@ -53,6 +53,7 @@ body{
   /* Main content area */
 .main-container {
     padding: 20px;
+    color: white;
 }
 
 .event-list {
