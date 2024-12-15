@@ -47,3 +47,44 @@ body{
     font-size: 25px;
     text-align: center;
   }
+
+  /* Main content area */
+.main-container {
+    padding: 20px;
+}
+
+.event-list {
+    margin-top: 20px;
+}
+
+.event {
+    background-color: #444;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.event h2 {
+    color: #FFD700;
+}
+
+.event p, .event a {
+    color: #CCC;
+}
+
+.event a:hover {
+    color: #FFF;
+}
+
+h1 {
+    color: #CCC;
+}
+
+select#categorySelect {
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    width: 200px; 
+    font-size: 16px;
+    cursor: pointer;
+}
