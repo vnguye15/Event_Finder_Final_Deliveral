@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>INST377 - Final Project</title>
+    <link rel="stylesheet" href="/Final Project/Event_Finder_Final_Deliveral/public/Styling.css" />
+    <script src="EventFinder.js"></script>
+  </head>
+
+  <body>
+    <header id="bar">
+      <p>Event Finder</p>
+    </header>
+    <nav id="main-nav">
+      <ul>
+        <a href="Home.html"
+          ><li><button onclick="changeHomePage()">Home</button></li></a
+        >
+        <a href="About.html"
+          ><li><button onclick="changeAboutPage()">About</button></li></a
+        >
+        <a href="Events.html"
+          ><li><button onclick="changeEventsPage()">Events</button></li></a
+        >
+      </ul>
+    </nav>
+    <div class="main-container">
+      <h1>Upcoming Events</h1>
+      <h3> Please choose an event option that fits your interest.</h3>
+
+      <form id="eventForm">
+        <select id="categorySelect">
+            <option value="">Select a Category</option>
+            <option value="KZFzniwnSyZfZ7v7nJ">Live Music</option>
+            <option value="KZFzniwnSyZfZ7v7nE">Sporting Events</option>
+            <option value="KZFzniwnSyZfZ7v7na">Arts & Theatre</option>
+            <option value="KZFzniwnSyZfZ7v7n1">Family</option>
+            <option value="KZFzniwnSyZfZ7v7nn">Film</option>
+        </select>
+        
+        <label for="venues">Venues: </label>
+        <select id="venues" name="venues">
+            <option value="">Select Venue</option>
+        </select>
+        <br>
+        <label for="eventDates">Dates: </label>
+        <select id="eventDates" name="eventDates">
+            <option value="">Select Date</option>
+        </select>
+    </form>
+    
+
+      <div class="event-list">
+          <!-- Events will be populated here by JavaScript -->
+      </div>
+
+    
+
+      <img src="https://images.lincolncenter.org/image/upload/v1658782168/cokcc2pdwzdjolxd5dab.jpg" height="500px" id="main-pic">
+  </div>
+  </body>
+</html>
