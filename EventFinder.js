@@ -50,15 +50,49 @@ function updateFilters() {
         
     }
 
-
-
 }
 
 
 // creating a function that will fetch events by filters 
 function loadEventsByFilter() {
 
-    return 0;
+    const apiURL = 'https://app.ticketmaster.com/discovery/v2/events.json';
+    const apiKey = 'n30PAv6jRNbr2Tc9nGWUWpHHPsJk7TCn';
+
+
+    let url = `${apiURL}?apikey=${apiKey}`;
+    if (categoryId != null) {
+
+        url += `&classificationId=${categoryId}`;
+
+    }else if (venueId != null ) {
+
+        url += `&venueId=${venueId}`;
+
+    }else if (eventDate != null) {
+
+        url += `&startDateTime=${eventDate}T00:00:00Z`;
+
+    } 
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+        if (data._embedded && data._embedded.venues) {
+            loadVenues(data._embedded.venues);
+
+        }else {
+
+            console.error('No venues found:', error);
+        }
+
+
+
+    })
+    .catch(error => {
+        console.error('Error getting venue data', error);
+    })
+
+
 }
 
 
