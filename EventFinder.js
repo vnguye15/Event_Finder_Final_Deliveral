@@ -28,21 +28,19 @@ function updateFilters() {
     const venue = document.getElementById('venues').value;
     const eventDate = document.getElementById('eventDates').value;
 
-    if (category || venue || eventDate) {
-        loadEventsByFilter(category, venue, eventDate);
-    } else {
-        clearEvents();
-    }
+    loadEventsByFilter(category, venue, eventDate);
 }
 
 function loadEventsByFilter(category, venue, eventDate) {
     const apiURL = 'https://app.ticketmaster.com/discovery/v2/events.json';
     const apiKey = 'n30PAv6jRNbr2Tc9nGWUWpHHPsJk7TCn';
-    let url = `${apiURL}?apikey=${apiKey}&size=10`;
+    let url = `${apiURL}?apikey=${apiKey}&size=20`;
 
     if (category) url += `&classificationId=${category}`;
     if (venue) url += `&venueId=${venue}`;
-    if (eventDate) url += `&startDateTime=${eventDate}T00:00:00Z`;
+    if (eventDate) {
+        url += `&startDateTime=${eventDate}T00:00:00Z`;
+    }
 
     fetch(url)
         .then(response => {
@@ -53,7 +51,10 @@ function loadEventsByFilter(category, venue, eventDate) {
         })
         .then(data => {
             if (data._embedded && data._embedded.events) {
-                displayEvents(data._embedded.events);
+                const filteredEvents = eventDate
+                    ? data._embedded.events.filter(event => event.dates.start.localDate === eventDate)
+                    : data._embedded.events;
+                displayEvents(filteredEvents);
             } else {
                 displayNoEventsFound();
             }
@@ -67,12 +68,17 @@ function loadEventsByFilter(category, venue, eventDate) {
 function displayEvents(events) {
     const eventsContainer = document.querySelector('.event-list');
     eventsContainer.innerHTML = ''; // Clear previous results
+
+    // Sort events by date
+    events.sort((a, b) => new Date(a.dates.start.localDate) - new Date(b.dates.start.localDate));
+
     events.forEach(event => {
         const eventEl = document.createElement('div');
         eventEl.className = 'event';
         eventEl.innerHTML = `
             <h2>${event.name}</h2>
-            <p>Date: ${event.dates.start.localDate}</p>
+            <p>Date: ${new Date(event.dates.start.localDate).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+            <p>Time: ${event.dates.start.localTime ? new Date(`${event.dates.start.localDate}T${event.dates.start.localTime}`).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) : 'Not specified'}</p>
             <p>Location: ${event._embedded.venues[0].name}</p>
             <a href="${event.url}" target="_blank">More Details</a>
         `;
@@ -124,11 +130,11 @@ function loadEventDates() {
                 dates.add(event.dates?.start?.localDate);
             });
 
-            dates.forEach(date => {
+            Array.from(dates).sort().forEach(date => {
                 if (date) { 
                     const option = document.createElement('option');
                     option.value = date;
-                    option.textContent = date;
+                    option.textContent = new Date(date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
                     selectElement.appendChild(option);
                 }
             });
